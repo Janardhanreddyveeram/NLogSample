@@ -15,6 +15,16 @@ namespace NLogSample.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Home Controller Invoked");
+            try
+            {
+                var value = 1;
+                var item = value / 0;
+            }
+            catch(Exception)
+            {
+                _logger.LogError("Exception thrown..");
+            }
             return View();
         }
 
